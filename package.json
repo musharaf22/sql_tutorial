@@ -1,0 +1,21 @@
+{
+  "name": "sql_tutorial",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/musharaf22/sql_tutorial.git",
+  "author": "musharaf-fleapo <105627926+musharaf-fleapo@users.noreply.github.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "ts-node-dev ./index.ts"
+  },
+  "dependencies": {
+    "@types/express": "^4.17.17",
+    "@types/node": "^18.14.0",
+    "express": "^4.18.2",
+    "mysql2": "^3.1.2",
+    "nodemon": "^2.0.20",
+    "sequelize": "^6.28.0",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.9.5"
+  }
+}
