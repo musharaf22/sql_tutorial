@@ -1,4 +1,5 @@
-import express, { Application, Request, Response, } from "express";
+import express, { Application, Request, Response } from "express";
+import userRoute from "./src/routes";
 
 const app: Application = express();
 const port = 4000;
@@ -7,19 +8,16 @@ const port = 4000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get(
-    "/",
-    async (_req: Request, res: Response): Promise<Response> => {
-        return res.status(200).send({
-            message: "Hello World!",
-        });
-    }
-);
-
+app.get("/", async (_req: Request, res: Response): Promise<Response> => {
+  return res.status(200).send({
+    message: "Hello World!",
+  });
+});
+app.use("/api/v1", userRoute);
 try {
-    app.listen(port, (): void => {
-        console.log(`Connected successfully on port ${port}`);
-    });
-} catch (error:any) {
-    console.error(`Error occured: ${error.message}`);
+  app.listen(port, (): void => {
+    console.log(`Connected successfully on port ${port}`);
+  });
+} catch (error: any) {
+  console.error(`Error occured: ${error.message}`);
 }

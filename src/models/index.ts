@@ -16,6 +16,6 @@ const user = users(sequelize, Sequelize);
 const post = postmodel(sequelize, Sequelize);
 db.User = user;
 db.Post = post;
-//----------------- Establishing Relationship--------------------------
+//----------------- Establishing Relationship------------------------
 
 export default db;

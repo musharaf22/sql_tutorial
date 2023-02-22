@@ -1,5 +1,3 @@
-import { userInfo } from "os";
-import { stringify } from "querystring";
 import { Model } from "sequelize";
 
 interface IuserModel {
@@ -26,6 +24,8 @@ export default (sequelize: any, DataTypes: any) => {
         type: DataTypes.STRING(255),
         allowNull: false,
         primaryKey: true,
+        autoIncrement: true,
+        autoIncrementIdentity: DataTypes.INTEGER(),
         field: "id",
       },
       address: {
