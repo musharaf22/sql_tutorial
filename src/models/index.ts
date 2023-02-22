@@ -6,6 +6,14 @@ import users from "./users";
 const sequelize = new Sequelize(dbconfig.DB, dbconfig.USER, dbconfig.PASSWORD, {
   host: dbconfig.HOST,
   dialect: "mysql",
+  // operatorsAliases: 0,
+  logging: dbconfig.logging,
+  pool: {
+    max: dbconfig.pool.max,
+    min: dbconfig.pool.min,
+    acquire: dbconfig.pool.acquire,
+    idle: dbconfig.pool.idle,
+  },
 });
 const db: any = {};
 

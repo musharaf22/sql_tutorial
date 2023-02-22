@@ -21,7 +21,7 @@ export default (sequelize: any, DataTypes: any) => {
   User.init(
     {
       id: {
-        type: DataTypes.STRING(255),
+        type: DataTypes.INTEGER(10),
         allowNull: false,
         primaryKey: true,
         autoIncrement: true,
@@ -63,4 +63,5 @@ export default (sequelize: any, DataTypes: any) => {
       updatedAt: "updatedAt",
     }
   );
+  return User;
 };

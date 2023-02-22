@@ -54,4 +54,5 @@ export default (sequelize: any, DataType: any) => {
       updatedAt: "updatedAt",
     }
   );
+  return Post;
 };
