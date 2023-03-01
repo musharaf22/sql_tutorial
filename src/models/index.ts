@@ -25,5 +25,6 @@ const post = postmodel(sequelize, Sequelize);
 db.User = user;
 db.Post = post;
 //----------------- Establishing Relationship------------------------
-
+db.User.hasOne(db.Post, { foreignKey: "userId" });
+db.Post.belongsTo(db.User, { foreignKey: "userId" });
 export default db;

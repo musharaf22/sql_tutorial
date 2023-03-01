@@ -3,10 +3,18 @@ import { Op } from "sequelize";
 import db from "../models";
 
 const User = db.User;
-
+const Post = db.Post;
 const getAlluser = async (_req: Request, res: Response) => {
   try {
-    const user = await User.findAll({ raw: true });
+    const user = await User.findAll({
+      include: {
+        model: Post,
+        attributes: {
+          exclude: ["id"],
+        },
+      },
+      raw: true,
+    });
 
     res.json({
       error: false,
@@ -34,7 +42,7 @@ const createUser = async (req: Request, res: Response) => {
       [Op.or]: [{ mobile }, { email }],
       raw: true,
     });
-    if (existUser) {
+    if (existUser.length > 0) {
       return res.status(400).json({
         error: true,
         message: "User Already Exist",

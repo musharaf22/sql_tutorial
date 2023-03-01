@@ -30,8 +30,33 @@ const createPost = async (req: Request, res: Response) => {
   }
 };
 
+const getAllPost = async (_req: Request, res: Response) => {
+  try {
+    const post = await Post.findAll({
+      include: {
+        model: User,
+      },
+      raw: true,
+    });
+    if (!post) {
+      return res.status(404).json({
+        error: true,
+        message: "No Post found",
+      });
+    }
+    return res.status(200).json({
+      error: false,
+      message: "Post retrieved successfully",
+      data: post,
+    });
+  } catch (error: any) {
+    return res.status(500).json({ error: true, message: error.message });
+  }
+};
+
 const postController = {
   createPost,
+  getAllPost,
 };
 
 export default postController;

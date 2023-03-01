@@ -6,7 +6,7 @@ interface IuserModel {
   address: string;
   mobile: string;
   email: string;
-  postId: string;
+  // postId: string;
 }
 
 class User extends Model<IuserModel> implements IuserModel {
@@ -14,7 +14,7 @@ class User extends Model<IuserModel> implements IuserModel {
   public address!: string;
   public mobile!: string;
   public email!: string;
-  public postId!: string;
+  // public postId!: string;
   public name!: string;
 }
 export default (sequelize: any, DataTypes: any) => {
@@ -48,11 +48,11 @@ export default (sequelize: any, DataTypes: any) => {
         allowNull: true,
         field: "name",
       },
-      postId: {
-        type: DataTypes.STRING(50),
-        allowNull: true,
-        field: "postId",
-      },
+      // postId: {
+      //   type: DataTypes.STRING(50),
+      //   allowNull: true,
+      //   field: "postId",
+      // },
     },
     {
       sequelize,
