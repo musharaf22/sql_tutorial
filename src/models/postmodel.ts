@@ -20,29 +20,36 @@ export default (sequelize: any, DataType: any) => {
   Post.init(
     {
       id: {
-        type: DataType.STRING(50),
+        type: DataType.INTEGER(10),
         primaryKey: true,
         allowNull: false,
+        autoIncrement: true,
+        autoIncrementIdentity: DataType.INTEGER(),
+        field: "id",
       },
       title: {
         type: DataType.STRING(500),
         primaryKey: false,
         allowNull: true,
+        field: "title",
       },
       content: {
         type: DataType.STRING(500),
         primaryKey: false,
         allowNull: true,
+        field: "content",
       },
       image: {
         type: DataType.STRING(50000),
         primaryKey: false,
         allowNull: true,
+        field: "image",
       },
       userId: {
         type: DataType.STRING(500),
         primaryKey: false,
         allowNull: true,
+        field: "userId",
       },
     },
     {
